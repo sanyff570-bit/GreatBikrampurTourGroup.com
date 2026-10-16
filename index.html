@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Bikrampur Tour Group - Explore Bangladesh</title>
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --accent: #f59e0b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Banner */
+        .hero {
+            min-height: 85vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Container Section */
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        /* Tour Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .tour-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .tour-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .tour-content {
+            padding: 25px;
+        }
+
+        .tour-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .tour-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tour-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .badge {
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+        }
+
+        /* About & Moderator Note */
+        .about-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: var(--primary);
+            color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            margin-bottom: 25px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .contact-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-light {
+            background: #fff;
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-light:hover {
+            background: #f1f5f9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo">Great Bikrampur <span>Tour Group</span></div>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#tours">Destinations</a>
+            <a href="#contact">Contact & Booking</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>বাংলাদেশের সৌন্দর্য ঘুরে দেখুন আমাদের সাথে</h1>
+        <p>সাজেক, কক্সবাজার, সুন্দরবন, সেন্টমার্টিন, সিলেট ও সীতাকুণ্ডসহ যেকোনো ট্যুরে নিরাপদ ও আনন্দদায়ক ভ্রমণের বিশ্বস্ত মাধ্যম।</p>
+        <a href="#tours" class="btn-primary">আসন্ন ট্যুরসমূহ দেখুন</a>
+    </section>
+
+    <!-- About Section -->
+    <div id="about" class="container">
+        <h2 class="section-title">আমাদের সম্পর্কে</h2>
+        <p class="section-subtitle">গ্রেট বিক্রমপুর ট্যুর গ্রুপ (GBTG)</p>
+
+        <div class="about-card">
+            <p style="font-size: 17px; line-height: 1.8; color: #334155;">
+                <strong>Great Bikrampur Tour Group</strong> বাংলাদেশের ভ্রমণপ্রেমীদের একটি সক্রিয় ট্যুরিজম প্ল্যাটফর্ম। আমরা সাশ্রয়ী বাজেট, নিরাপদ পরিবেশ এবং সর্বোচ্চ অভিজ্ঞতা নিশ্চিত করে সারাদেশের সেরা পর্যটন স্থানগুলোতে নিয়মিত গ্রুপ ট্যুর আয়োজন করে থাকি। আপনি একা কিংবা বন্ধু ও পরিবার নিয়ে আমাদের যেকোনো ইভেন্টে যোগ দিতে পারেন।
+            </p>
+        </div>
+    </div>
+
+    <!-- Tour Destinations Section -->
+    <div id="tours" class="container">
+        <h2 class="section-title">আমাদের প্রধান ভ্রমণ গন্তব্যসমূহ</h2>
+        <p class="section-subtitle">আপনার পছন্দের গন্তব্য বেছে নিন এবং বুকিং করুন</p>
+
+        <div class="grid">
+
+            <!-- Sajek -->
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=600&q=80" alt="Sajek Valley" class="tour-img">
+                <div class="tour-content">
+                    <h3 class="tour-title">সাজেক ভ্যালি ও খাগড়াছড়ি</h3>
+                    <p class="tour-desc">মেঘের রাজ্য সাজেক ভ্যালির কংলাক পাহাড়, রুইলুই পাড়া এবং খাগড়াছড়ির আলুটিলা গুহা ও তারেং ভ্রমণ।</p>
+                    <div class="tour-meta">
+                        <span class="badge">২ রাত ৩ দিন</span>
+                        <a href="https://wa.me/8801927041315?text=Hello,%20I%20want%20to%20know%20about%20Sajek%20Tour" class="btn-whatsapp" target="_blank">WhatsApp-এ বুকিং</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cox's Bazar & St. Martin -->
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Saint Martin" class="tour-img">
+                <div class="tour-content">
+                    <h3 class="tour-title">কক্সবাজার ও সেন্টমার্টিন দ্বীপ</h3>
+                    <p class="tour-desc">বিশ্বের দীর্ঘতম সমুদ্র সৈকত কক্সবাজার এবং নারিকেল জিঞ্জিরা সেন্টমার্টিন দ্বীপে নীল জলরাশির রোমাঞ্চ।</p>
+                    <div class="tour-meta">
+                        <span class="badge">৩ রাত ৩ দিন</span>
+                        <a href="https://wa.me/8801927041315?text=Hello,%20I%20want%20to%20know%20about%20St.Martin%20Tour" class="btn-whatsapp" target="_blank">WhatsApp-এ বুকিং</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sylhet -->
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?auto=format&fit=crop&w=600&q=80" alt="Sylhet Jaflong" class="tour-img">
+                <div class="tour-content">
+                    <h3 class="tour-title">সিলেট, জাফলং ও বিছানাকান্দি</h3>
+                    <p class="tour-desc">চা বাগান, সাদা পাথর, রাতারগুল জলবন এবং জাফলংয়ের স্বচ্ছ পানির জলপ্রপাতের ছোঁয়া।</p>
+                    <div class="tour-meta">
+                        <span class="badge">২ রাত ২ দিন</span>
+                        <a href="https://wa.me/8801927041315?text=Hello,%20I%20want%20to%20know%20about%20Sylhet%20Tour" class="btn-whatsapp" target="_blank">WhatsApp-এ বুকিং</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sundarban -->
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="Sundarbans" class="tour-img">
+                <div class="tour-content">
+                    <h3 class="tour-title">সুন্দরবন ওয়াইল্ডলাইফ সাফারি</h3>
+                    <p class="tour-desc">বিশ্বের বৃহত্তম ম্যানগ্রোভ বন সুন্দরবনে ক্রুজ শিপে ট্রাভেল, কটকা, করমজল ও বন্যপ্রাণী দর্শন।</p>
+                    <div class="tour-meta">
+                        <span class="badge">৩ রাত ২ দিন</span>
+                        <a href="https://wa.me/8801927041315?text=Hello,%20I%20want%20to%20know%20about%20Sundarban%20Tour" class="btn-whatsapp" target="_blank">WhatsApp-এ বুকিং</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sitakunda -->
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="Sitakunda" class="tour-img">
+                <div class="tour-content">
+                    <h3 class="tour-title">সীতাকুণ্ড ঝর্ণা ট্র্যাকিং</h3>
+                    <p class="tour-desc">চন্দ্রনাথ পাহাড় ট্র্যাকিং, গুলিয়াখালী সমুদ্র সৈকত এবং সহস্রধারা ও খৈয়াছড়া ঝর্ণার রোমাঞ্চকর ট্রিপ।</p>
+                    <div class="tour-meta">
+                        <span class="badge">১ দিন ডে ট্রিপ</span>
+                        <a href="https://wa.me/8801927041315?text=Hello,%20I%20want%20to%20know%20about%20Sitakunda%20Tour" class="btn-whatsapp" target="_blank">WhatsApp-এ বুকিং</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rangamati -->
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Rangamati" class="tour-img">
+                <div class="tour-content">
+                    <h3 class="tour-title">রাঙ্গামাটি কাপ্তাই লেক</h3>
+                    <p class="tour-desc">কাপ্তাই হ্রদে বোট রাইডিং, ঝুলন্ত সেতু, শুভলং ঝর্ণা এবং রাজবন বিহার দর্শনের চমৎকার ট্যুর।</p>
+                    <div class="tour-meta">
+                        <span class="badge">২ রাত ২ দিন</span>
+                        <a href="https://wa.me/8801927041315?text=Hello,%20I%20want%20to%20know%20about%20Rangamati%20Tour" class="btn-whatsapp" target="_blank">WhatsApp-এ বুকিং</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Contact & Booking Section -->
+    <div id="contact" class="container">
+        <div class="contact-box">
+            <h2>যেকোনো ট্যুরে আমাদের সাথে যুক্ত হতে চান?</h2>
+            <p>পরবর্তী ট্যুরের ডেট ও বিস্তারিত জানতে সরাসরি কল বা হোয়াটসঅ্যাপ করুন আমাদের এডমিন/মডারেটর প্যানেলে।</p>
+            
+            <div class="contact-btns">
+                <a href="tel:+8801927041315" class="btn-light">📞 কল করুন (+880 1927041315)</a>
+                <a href="https://wa.me/8801927041315" class="btn-light" target="_blank">💬 WhatsApp মেসেজ দিন</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Great Bikrampur Tour Group (GBTG). All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
